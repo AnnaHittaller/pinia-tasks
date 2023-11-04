@@ -3,14 +3,17 @@
 
     <!-- heading -->
     <header>
-      <img src="./assets/pinia.svg" alt="Pinia logo">
-      <h1>Pinia Tasks</h1>
+      <div>
+
+        <img src="./assets/pinia.svg" alt="Pinia logo">
+        <h1>Pinia Tasks</h1>
+      </div>
+      <!-- new task form -->
+      <div class="new-task-form">
+        <TaskForm />
+      </div>
     </header>
 
-    <!-- new task form -->
-    <div class="new-task-form">
-      <TaskForm />
-    </div>
 
     <!-- filter -->
     <nav class="filter">
@@ -18,10 +21,16 @@
       <button @click="filter = 'favs'">Fav Tasks</button>
     </nav>
 
+    <!-- loading -->
+    <div class="loading" v-if="taskStore.isLoading">
+      <p>Loading tasks...</p>
+    </div>
+
     <!-- tasklist -->
 
     <div class="task-list" v-if="filter === 'all'">
-      <p>You have <span>{{ taskStore.totalCount }}</span> {{ taskStore.totalCount > 1 ? "tasks" : "task" }} left to do:</p>
+      <p>You have <span>{{ taskStore.totalCount }}</span> {{ taskStore.totalCount > 1 ? "tasks" : "task" }} left to do:
+      </p>
       <div v-for="task in taskStore.tasks">
         <TaskDetails :task="task" />
       </div>
@@ -45,6 +54,8 @@ export default {
   components: { TaskDetails, TaskForm },
   setup() {
     const taskStore = useTaskStore()
+
+    taskStore.getTasks()
 
     const filter = ref('all')
 

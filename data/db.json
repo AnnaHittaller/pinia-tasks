@@ -1,0 +1,10 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Learn Pinia 🍍",
+      "isFav": true
+    }
+
+  ]
+}

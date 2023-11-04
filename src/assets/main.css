@@ -1,22 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
 
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 body {
 	background: #f2f2f2;
 	color: #444;
-	margin: 0;
+	display: flex;
+	justify-content: center;
+	min-width: 100vw;
 }
 body * {
 	font-family: "Poppins";
 }
+#app{
+	width: 100%;
+}
+
 
 /* header */
 header {
 	text-align: center;
 	background: #e7e7e7;
 	padding-top: 20px;
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
+}
+headver > div {
+	justify-content: center;
+}
+header > div:first-of-type {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 header img {
 	max-width: 60px;
@@ -33,11 +54,15 @@ header h1 {
 
 /* task list */
 .task-list {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 	max-width: 640px;
 	margin: 20px auto;
+	padding: 0 1rem;
 }
 .task {
-	padding: 6px 20px;
+	padding: 14px 20px;
 	background: #fff;
 	margin-top: 20px;
 	border-radius: 4px;
@@ -45,6 +70,7 @@ header h1 {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
 }
 .task h3,
 .task .icons {
@@ -58,9 +84,14 @@ header h1 {
 	margin-left: 6px;
 	cursor: pointer;
 	color: #bbb;
+	transition: 0.2s;
 }
 .task i.active {
 	color: rgb(255, 110, 134);
+}
+
+.task i:first-of-type:hover {
+	color: #444;
 }
 .task-list span {
 	background: #ffd859;
@@ -72,9 +103,10 @@ header h1 {
 
 /* filter nav */
 .filter {
-	width: 640px;
+	max-width: 640px;
 	margin: 10px auto;
 	text-align: right;
+	padding: 0 1rem;
 }
 .filter button {
 	display: inline-block;
@@ -85,6 +117,10 @@ header h1 {
 	padding: 4px 8px;
 	cursor: pointer;
 	font-size: 1em;
+	transition: 0.3s;
+}
+.filter button:hover {
+	border-color: #ffd859;
 }
 
 /* new task form */
@@ -114,4 +150,14 @@ form input {
 	border-radius: 6px;
 	color: #555;
 	font-size: 1em;
+}
+
+.loading {
+	max-width: 640px;
+	border: 1px solid #ffd859;
+	background: #ffe9a0;
+	color: #3a3a3a;
+	padding: 5px 0;
+	text-align: center;
+	margin: 30px auto;
 }

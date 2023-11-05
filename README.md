@@ -1,29 +1,18 @@
-# pinia-tasks
+# Pinia Tasks 🍍
 
-This template should help get you started developing with Vue 3 in Vite.
+This todo app was created in Vue.js, to learn how to use Pinia for state management. 
+The todos are stored and updated with the help of a json server. 
 
 ## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+![app screenshot](https://github.com/AnnaHittaller/pinia-tasks/blob/main/src/assets/Pini-Tasks_screenshot.png) 
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## Project Setup & Run
 
 ```sh
+//clone repo, then:
+cd pinia-tasks
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
+json-server -w ./data/db.json
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
 ```

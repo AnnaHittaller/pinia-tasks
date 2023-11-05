@@ -29,19 +29,22 @@
     <!-- tasklist -->
 
     <div class="task-list" v-if="filter === 'all'">
-      <p>You have <span>{{ taskStore.totalCount }}</span> {{ taskStore.totalCount > 1 ? "tasks" : "task" }} left to do:
+      <p>You have <span>{{ taskStore.totalCount }}</span> {{ totalCount > 1 ? "tasks" : "task" }} left to do:
       </p>
-      <div v-for="task in taskStore.tasks">
+      <div v-for="task in tasks">
         <TaskDetails :task="task" />
       </div>
     </div>
     <div class="task-list" v-if="filter === 'favs'">
-      <p>You have <span>{{ taskStore.favCount }}</span> favorite {{ taskStore.favCount > 1 ? "tasks" : "task" }} left to
+      <p>You have <span>{{ favCount }}</span> favorite {{ taskStore.favCount > 1 ? "tasks" : "task" }} left to
         do:</p>
-      <div v-for="task in taskStore.favs">
+      <div v-for="task in favs">
         <TaskDetails :task="task" />
       </div>
     </div>
+
+    <!-- <button @click="taskStore.$reset">reset state</button> -->
+
   </main>
 </template>
 
@@ -50,16 +53,20 @@ import { ref } from "vue"
 import TaskDetails from "./components/TaskDetails.vue"
 import TaskForm from "./components/TaskForm.vue"
 import { useTaskStore } from "./stores/TaskStore"
+import { storeToRefs } from "pinia"
 export default {
   components: { TaskDetails, TaskForm },
   setup() {
     const taskStore = useTaskStore()
 
+    const { tasks, isLoading, favs, totalCount, favCount } = storeToRefs(taskStore)
+    // desctructuring state props and getters so we can use them in the template without STORENAME.whatever prefix, but actions DO NOT work this way
+
     taskStore.getTasks()
 
     const filter = ref('all')
 
-    return { taskStore, filter }
+    return { taskStore, filter, tasks, isLoading, favs, totalCount, favCount }
   }
 }
 </script>

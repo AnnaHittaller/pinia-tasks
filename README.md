@@ -3,9 +3,9 @@
 This todo app was created in Vue.js, to learn how to use Pinia for state management. 
 The todos are stored and updated with the help of a json server. 
 
-## Recommended IDE Setup
+## Screenshot
 
-![app screenshot](https://github.com/AnnaHittaller/pinia-tasks/blob/main/src/assets/Pini-Tasks_screenshot.png) 
+![app screenshot](https://github.com/AnnaHittaller/pinia-tasks/blob/main/src/assets/Pinia-Tasks_screenshot.png) 
 
 ## Project Setup & Run
 
